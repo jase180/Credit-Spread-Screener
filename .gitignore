@@ -45,6 +45,9 @@ htmlcov/
 *.db
 *.sqlite
 
+# Database directory
+data/
+
 # Environment variables
 .env
 .env.local
@@ -55,3 +58,6 @@ Thumbs.db
 
 # Logs
 *.log
+
+# Notes
+notes.md

@@ -23,6 +23,8 @@ When failure modes trigger, the system reduces or halts new entries.
 
 ## Usage
 
+### Basic Screening
+
 ```python
 from src.screener import CreditSpreadScreener
 
@@ -36,15 +38,43 @@ candidates = screener.screen(['AAPL', 'MSFT', 'GOOGL', 'NVDA'])
 state = screener.get_system_state()
 ```
 
+### With Database (Recommended)
+
+```python
+from src.screener import CreditSpreadScreener
+from src.data import Database
+
+# Initialize screener and database
+screener = CreditSpreadScreener()
+db = Database()  # Auto-creates data/screening.db
+
+# Run screening
+results = screener.screen(...)
+
+# Save results to database
+db.save_scan_results(results)
+
+# Query historical data
+history = db.get_ticker_history('AAPL', days=30)
+summary = db.get_qualification_summary(days=30)
+```
+
+**See:**
+- `example_usage.py` - Basic screening example
+- `example_database.py` - Database integration example
+- `DATABASE_USAGE.md` - Complete database guide
+
 ## Directory Structure
 
 ```
 src/
   gates/          # Four rule gates
   monitors/       # Failure mode detection
+  data/           # Data providers (options, database)
   utils/          # Data helpers
   screener.py     # Main orchestrator
 tests/            # Unit tests
+data/             # SQLite database (created automatically)
 ```
 
 ## Philosophy
