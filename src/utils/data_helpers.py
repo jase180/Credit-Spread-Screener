@@ -86,6 +86,10 @@ def has_lower_low(low: pd.Series, lookback: int = 20) -> bool:
     # Convert to numpy array to avoid pandas Series comparison issues
     recent_lows = low.iloc[-lookback:].values
 
+    # Flatten if multi-dimensional (happens with yfinance multi-ticker data)
+    if recent_lows.ndim > 1:
+        recent_lows = recent_lows.flatten()
+
     # Find local minima (lows)
     # A point is a local minimum if it's lower than neighbors
     for i in range(1, len(recent_lows) - 1):
@@ -165,11 +169,15 @@ def find_most_recent_higher_low(low: pd.Series, lookback: int = 60) -> Optional[
     recent_lows_series = low.iloc[-lookback:] if len(low) >= lookback else low
     recent_lows = recent_lows_series.values
 
+    # Flatten if multi-dimensional (happens with yfinance multi-ticker data)
+    if recent_lows.ndim > 1:
+        recent_lows = recent_lows.flatten()
+
     # Find local minima
     swing_lows = []
     for i in range(1, len(recent_lows) - 1):
         if recent_lows[i] <= recent_lows[i-1] and recent_lows[i] <= recent_lows[i+1]:
-            swing_lows.append((i, recent_lows[i]))
+            swing_lows.append((i, float(recent_lows[i])))
 
     if len(swing_lows) < 2:
         return None
@@ -203,6 +211,10 @@ def find_consolidation_base(low: pd.Series, lookback: int = 60, tolerance: float
     # Convert to numpy array to avoid pandas Series comparison issues
     recent_lows_series = low.iloc[-lookback:] if len(low) >= lookback else low
     recent_lows = recent_lows_series.values
+
+    # Flatten if multi-dimensional (happens with yfinance multi-ticker data)
+    if recent_lows.ndim > 1:
+        recent_lows = recent_lows.flatten()
 
     # Look for periods where price stayed within a tight range
     # A consolidation is defined as 5+ consecutive days within tolerance range

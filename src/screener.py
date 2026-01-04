@@ -96,21 +96,7 @@ class CreditSpreadScreener:
 
         # STEP 1: Check market regime (applies to all stocks)
         regime_result = self.market_regime_gate.evaluate(spy_data, vix_data)
-
-        if not regime_result['pass']:
-            # Market regime failed - no trades allowed
-            return {
-                'qualified_tickers': [],
-                'failed_tickers': {ticker: regime_result['reason'] for ticker in tickers},
-                'system_state': 'RISK-OFF',
-                'allow_new_trades': False,
-                'failure_mode_alerts': [{
-                    'severity': 'CRITICAL',
-                    'message': regime_result['reason']
-                }],
-                'gate_results': {},
-                'market_regime': regime_result
-            }
+        regime_failed = not regime_result['pass']
 
         # STEP 2: Run failure mode detection
         failure_modes = self.failure_detector.run_all_checks(
@@ -121,18 +107,8 @@ class CreditSpreadScreener:
 
         self.last_system_state = failure_modes['system_state']
 
-        # If system is in RISK-OFF, don't process stocks
-        if not failure_modes['allow_new_trades']:
-            return {
-                'qualified_tickers': [],
-                'failed_tickers': {ticker: 'System in RISK-OFF mode' for ticker in tickers},
-                'system_state': failure_modes['system_state'],
-                'allow_new_trades': False,
-                'failure_mode_alerts': failure_modes['alerts'],
-                'gate_results': {},
-                'market_regime': regime_result,
-                'failure_modes': failure_modes
-            }
+        # Store whether system-level gates failed (but continue screening to show details)
+        system_level_failure = regime_failed or not failure_modes['allow_new_trades']
 
         # STEP 3: Screen each ticker through the remaining gates
         qualified_tickers = []
@@ -217,6 +193,43 @@ class CreditSpreadScreener:
         if rs_breakdown_alerts:
             failure_modes['alerts'].extend(rs_breakdown_alerts)
 
+        # If system-level failure occurred, override final results
+        # But preserve gate_results so user can see individual ticker details
+        if system_level_failure:
+            # Add system-level alerts
+            system_alerts = failure_modes['alerts'].copy()
+            if regime_failed:
+                system_alerts.insert(0, {
+                    'severity': 'CRITICAL',
+                    'message': regime_result['reason']
+                })
+
+            # Mark all tickers as failed with individual gate reasons, but note system is RISK-OFF
+            final_qualified = []
+            final_failed = {}
+            for ticker in tickers:
+                if ticker in failed_tickers:
+                    # Already failed individual gates - keep that reason
+                    final_failed[ticker] = failed_tickers[ticker]
+                elif ticker in qualified_tickers:
+                    # Would qualify, but system is RISK-OFF
+                    final_failed[ticker] = "[SYSTEM] Market regime RISK-OFF (would qualify otherwise)"
+                else:
+                    # No gate results (no data, etc.)
+                    final_failed[ticker] = regime_result['reason']
+
+            return {
+                'qualified_tickers': final_qualified,
+                'failed_tickers': final_failed,
+                'system_state': 'RISK-OFF' if regime_failed else failure_modes['system_state'],
+                'allow_new_trades': False,
+                'failure_mode_alerts': system_alerts,
+                'gate_results': gate_results,  # Preserve individual gate details
+                'market_regime': regime_result,
+                'failure_modes': failure_modes
+            }
+
+        # System healthy - return normal results
         return {
             'qualified_tickers': qualified_tickers,
             'failed_tickers': failed_tickers,
