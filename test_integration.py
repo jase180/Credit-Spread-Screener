@@ -118,7 +118,8 @@ def test_market_data_fetch():
         spy_data = yf.download('SPY', period='6mo', progress=False)
         if len(spy_data) > 0:
             print(f"  ✓ SPY: {len(spy_data)} days of data")
-            print(f"    Latest close: ${spy_data['Close'].iloc[-1]:.2f}")
+            latest_close = float(spy_data['Close'].iloc[-1])
+            print(f"    Latest close: ${latest_close:.2f}")
         else:
             print("  ❌ SPY: No data")
             return None, None, None
@@ -128,7 +129,8 @@ def test_market_data_fetch():
         vix_data = yf.download('^VIX', period='6mo', progress=False)
         if len(vix_data) > 0:
             print(f"  ✓ VIX: {len(vix_data)} days of data")
-            print(f"    Latest close: {vix_data['Close'].iloc[-1]:.2f}")
+            latest_close = float(vix_data['Close'].iloc[-1])
+            print(f"    Latest close: {latest_close:.2f}")
         else:
             print("  ❌ VIX: No data")
             return None, None, None
@@ -138,7 +140,8 @@ def test_market_data_fetch():
         aapl_data = yf.download('AAPL', period='6mo', progress=False)
         if len(aapl_data) > 0:
             print(f"  ✓ AAPL: {len(aapl_data)} days of data")
-            print(f"    Latest close: ${aapl_data['Close'].iloc[-1]:.2f}")
+            latest_close = float(aapl_data['Close'].iloc[-1])
+            print(f"    Latest close: ${latest_close:.2f}")
         else:
             print("  ❌ AAPL: No data")
             return None, None, None

@@ -108,13 +108,13 @@ class EventVolatilityGate:
         volume_acceptable = True
 
         if len(stock_data) >= 2:
-            close_today = stock_data['Close'].iloc[-1]
-            close_yesterday = stock_data['Close'].iloc[-2]
+            close_today = float(stock_data['Close'].iloc[-1])
+            close_yesterday = float(stock_data['Close'].iloc[-2])
             is_down_day = close_today < close_yesterday
 
             if is_down_day and len(stock_data) >= 21:
-                volume_today = stock_data['Volume'].iloc[-1]
-                avg_volume_20d = stock_data['Volume'].iloc[-21:-1].mean()
+                volume_today = float(stock_data['Volume'].iloc[-1])
+                avg_volume_20d = float(stock_data['Volume'].iloc[-21:-1].mean())
                 volume_acceptable = volume_today <= avg_volume_20d
             else:
                 # If not a down day, this check passes
@@ -138,8 +138,8 @@ class EventVolatilityGate:
         }
 
         if len(stock_data) >= 21:
-            details['volume_today'] = stock_data['Volume'].iloc[-1]
-            details['avg_volume_20d'] = stock_data['Volume'].iloc[-21:-1].mean()
+            details['volume_today'] = float(stock_data['Volume'].iloc[-1])
+            details['avg_volume_20d'] = float(stock_data['Volume'].iloc[-21:-1].mean())
 
         # Determine failure reason
         reason = None

@@ -36,8 +36,8 @@ def calculate_sma_slope(sma: pd.Series, lookback: int = 1) -> float:
     if len(sma) < lookback + 1:
         return 0.0
 
-    current = sma.iloc[-1]
-    previous = sma.iloc[-(lookback + 1)]
+    current = float(sma.iloc[-1])
+    previous = float(sma.iloc[-(lookback + 1)])
 
     return current - previous
 
@@ -83,18 +83,19 @@ def has_lower_low(low: pd.Series, lookback: int = 20) -> bool:
     if len(low) < lookback:
         return False
 
-    recent_lows = low.iloc[-lookback:]
+    # Convert to numpy array to avoid pandas Series comparison issues
+    recent_lows = low.iloc[-lookback:].values
 
     # Find local minima (lows)
     # A point is a local minimum if it's lower than neighbors
     for i in range(1, len(recent_lows) - 1):
-        if recent_lows.iloc[i] < recent_lows.iloc[i-1] and recent_lows.iloc[i] < recent_lows.iloc[i+1]:
+        if recent_lows[i] < recent_lows[i-1] and recent_lows[i] < recent_lows[i+1]:
             # This is a swing low
             # Check if there's a lower swing low before it
             for j in range(i):
-                if recent_lows.iloc[j] < recent_lows.iloc[j-1] if j > 0 else False:
-                    if recent_lows.iloc[j] < recent_lows.iloc[j+1] if j < len(recent_lows) - 1 else False:
-                        if recent_lows.iloc[i] < recent_lows.iloc[j]:
+                if j > 0 and recent_lows[j] < recent_lows[j-1]:
+                    if j < len(recent_lows) - 1 and recent_lows[j] < recent_lows[j+1]:
+                        if recent_lows[i] < recent_lows[j]:
                             return True
 
     return False
@@ -114,8 +115,8 @@ def calculate_return(prices: pd.Series, period: int) -> float:
     if len(prices) < period + 1:
         return 0.0
 
-    current = prices.iloc[-1]
-    previous = prices.iloc[-(period + 1)]
+    current = float(prices.iloc[-1])
+    previous = float(prices.iloc[-(period + 1)])
 
     return ((current - previous) / previous) * 100
 
@@ -134,8 +135,8 @@ def calculate_pct_change(series: pd.Series, period: int = 5) -> float:
     if len(series) < period + 1:
         return 0.0
 
-    current = series.iloc[-1]
-    previous = series.iloc[-(period + 1)]
+    current = float(series.iloc[-1])
+    previous = float(series.iloc[-(period + 1)])
 
     if previous == 0:
         return 0.0
@@ -160,13 +161,15 @@ def find_most_recent_higher_low(low: pd.Series, lookback: int = 60) -> Optional[
     if len(low) < 5:
         return None
 
-    recent_lows = low.iloc[-lookback:] if len(low) >= lookback else low
+    # Convert to numpy array to avoid pandas Series comparison issues
+    recent_lows_series = low.iloc[-lookback:] if len(low) >= lookback else low
+    recent_lows = recent_lows_series.values
 
     # Find local minima
     swing_lows = []
     for i in range(1, len(recent_lows) - 1):
-        if recent_lows.iloc[i] <= recent_lows.iloc[i-1] and recent_lows.iloc[i] <= recent_lows.iloc[i+1]:
-            swing_lows.append((i, recent_lows.iloc[i]))
+        if recent_lows[i] <= recent_lows[i-1] and recent_lows[i] <= recent_lows[i+1]:
+            swing_lows.append((i, recent_lows[i]))
 
     if len(swing_lows) < 2:
         return None
@@ -174,7 +177,7 @@ def find_most_recent_higher_low(low: pd.Series, lookback: int = 60) -> Optional[
     # Find the most recent higher low
     for i in range(len(swing_lows) - 1, 0, -1):
         if swing_lows[i][1] > swing_lows[i-1][1]:
-            return swing_lows[i][1]
+            return float(swing_lows[i][1])
 
     return None
 
@@ -197,18 +200,20 @@ def find_consolidation_base(low: pd.Series, lookback: int = 60, tolerance: float
     if len(low) < 10:
         return None
 
-    recent_lows = low.iloc[-lookback:] if len(low) >= lookback else low
+    # Convert to numpy array to avoid pandas Series comparison issues
+    recent_lows_series = low.iloc[-lookback:] if len(low) >= lookback else low
+    recent_lows = recent_lows_series.values
 
     # Look for periods where price stayed within a tight range
     # A consolidation is defined as 5+ consecutive days within tolerance range
     min_consolidation_days = 5
 
     for i in range(len(recent_lows) - min_consolidation_days, 0, -1):
-        window = recent_lows.iloc[i:i+min_consolidation_days]
+        window = recent_lows[i:i+min_consolidation_days]
         range_pct = (window.max() - window.min()) / window.min()
 
         if range_pct <= tolerance:
             # Found a consolidation
-            return window.min()
+            return float(window.min())
 
     return None

@@ -23,7 +23,8 @@ def create_mock_price_data(
     days: int = 100,
     start_price: float = 100.0,
     trend: str = 'up',
-    volatility: float = 0.02
+    volatility: float = 0.02,
+    seed: int = 42
 ) -> pd.DataFrame:
     """
     Create synthetic OHLCV data for testing.
@@ -33,29 +34,46 @@ def create_mock_price_data(
         start_price: Starting price
         trend: 'up', 'down', or 'flat'
         volatility: Daily volatility (std dev)
+        seed: Random seed for reproducibility
 
     Returns:
-        DataFrame with OHLCV data
+        DataFrame with OHLCV data (with MultiIndex columns like yfinance)
     """
+    np.random.seed(seed)
     dates = pd.date_range(end=datetime.now(), periods=days, freq='D')
 
     # Generate price series based on trend
     if trend == 'up':
-        drift = 0.001  # 0.1% per day upward drift
+        # Smooth uptrend - linear increase with small oscillations
+        # This ensures higher lows throughout
+        base_prices = start_price * (1 + 0.003 * np.arange(days))  # 0.3% daily gain
+        # Add controlled oscillation that maintains higher lows
+        oscillation = np.sin(np.arange(days) / 5) * volatility * start_price
+        prices = base_prices + oscillation
+        # Ensure strictly higher lows by taking cumulative max of (price * 0.99)
+        low_floor = np.maximum.accumulate(prices * 0.99)
+        prices = np.maximum(prices, low_floor)
     elif trend == 'down':
-        drift = -0.001
+        base_prices = start_price * (1 - 0.003 * np.arange(days))
+        oscillation = np.sin(np.arange(days) / 5) * volatility * start_price
+        prices = base_prices + oscillation
     else:
-        drift = 0.0
+        # Flat with noise
+        prices = start_price * (1 + np.random.normal(0, volatility, days))
 
-    # Random walk with drift
-    returns = np.random.normal(drift, volatility, days)
-    prices = start_price * np.exp(np.cumsum(returns))
+    # Generate OHLCV with proper structure
+    # For uptrend, ensure Low values also form higher lows
+    if trend == 'up':
+        # Low should be below close but also maintain higher lows pattern
+        low_prices = prices * 0.99  # 1% below close
+        low_prices = np.maximum.accumulate(low_prices * 0.995)  # Ensure higher lows
+    else:
+        low_prices = prices * (1 + np.random.uniform(-0.01, 0.0, days))
 
-    # Generate OHLCV
     data = pd.DataFrame({
         'Open': prices * (1 + np.random.uniform(-0.005, 0.005, days)),
         'High': prices * (1 + np.random.uniform(0.0, 0.01, days)),
-        'Low': prices * (1 + np.random.uniform(-0.01, 0.0, days)),
+        'Low': low_prices,
         'Close': prices,
         'Volume': np.random.randint(1_000_000, 10_000_000, days)
     }, index=dates)
@@ -118,8 +136,8 @@ class TestMarketRegimeGate:
             volatility=0.01
         )
 
-        # Spike VIX in last 5 days
-        vix_data['Close'].iloc[-1] = vix_data['Close'].iloc[-6] * 1.15  # +15%
+        # Spike VIX in last 5 days (use .loc to avoid chained assignment warning)
+        vix_data.loc[vix_data.index[-1], 'Close'] = vix_data['Close'].iloc[-6] * 1.15  # +15%
 
         gate = MarketRegimeGate()
         result = gate.evaluate(spy_data, vix_data)
@@ -134,11 +152,19 @@ class TestRelativeStrengthGate:
     def test_outperforming_stock_passes(self):
         """Test that a stock outperforming SPY passes."""
         # Create SPY data with moderate gain
-        spy_data = create_mock_price_data(days=100, trend='up', volatility=0.01)
+        spy_data = create_mock_price_data(days=100, trend='up', start_price=100.0, seed=42)
 
-        # Create stock data with stronger gain
-        stock_data = create_mock_price_data(days=100, trend='up', volatility=0.015)
-        stock_data['Close'] = stock_data['Close'] * 1.1  # Boost performance
+        # Create stock data starting from same base but with stronger uptrend
+        # Use higher drift rate to ensure it outperforms over 30-day period
+        stock_data = create_mock_price_data(days=100, trend='up', start_price=100.0, seed=100)
+
+        # Apply a gradient multiplier - stronger gain in recent days
+        # This ensures 30-day return is higher while maintaining realistic data
+        gradient = np.linspace(1.0, 1.25, 100)  # 0% to 25% boost over time
+        stock_data['Close'] = stock_data['Close'] * gradient
+        stock_data['Low'] = stock_data['Low'] * gradient
+        stock_data['High'] = stock_data['High'] * gradient
+        stock_data['Open'] = stock_data['Open'] * gradient
 
         gate = RelativeStrengthGate()
         result = gate.evaluate(stock_data, spy_data, 'TEST')
@@ -187,15 +213,15 @@ class TestStructuralSafetyGate:
 
         gate = StructuralSafetyGate(use_atr_filter=False)
 
-        # Calculate 50-SMA
-        sma_50 = stock_data['Close'].rolling(50).mean().iloc[-1]
+        # Calculate 50-SMA (convert to float to avoid numpy type issues)
+        sma_50 = float(stock_data['Close'].rolling(50).mean().iloc[-1])
 
         # Test a strike above the SMA
         test_strike = sma_50 * 1.01  # 1% above SMA
 
         result = gate.evaluate(stock_data, 'TEST', hypothetical_strike=test_strike)
 
-        assert result['pass'] is False
+        assert result['pass'] == False  # Use == instead of 'is' for numpy compatibility
         assert result['details']['below_sma'] is False
 
 

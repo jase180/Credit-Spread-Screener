@@ -81,8 +81,8 @@ class FailureModeDetector:
         """
         # Calculate SPY metrics
         spy_sma_50 = calculate_sma(spy_data['Close'], 50)
-        spy_close = spy_data['Close'].iloc[-1]
-        spy_sma_current = spy_sma_50.iloc[-1]
+        spy_close = float(spy_data['Close'].iloc[-1])
+        spy_sma_current = float(spy_sma_50.iloc[-1])
 
         # Trigger conditions
         below_sma = spy_close < spy_sma_current
@@ -155,8 +155,8 @@ class FailureModeDetector:
 
         # Check if below 50-SMA
         stock_sma_50 = calculate_sma(stock_data['Close'], 50)
-        stock_close = stock_data['Close'].iloc[-1]
-        stock_sma_current = stock_sma_50.iloc[-1]
+        stock_close = float(stock_data['Close'].iloc[-1])
+        stock_sma_current = float(stock_sma_50.iloc[-1])
         below_sma = stock_close < stock_sma_current
 
         # Both conditions must be true
@@ -222,8 +222,8 @@ class FailureModeDetector:
                 continue
 
             stock_sma_50 = calculate_sma(stock_data['Close'], 50)
-            stock_close = stock_data['Close'].iloc[-1]
-            stock_sma_current = stock_sma_50.iloc[-1]
+            stock_close = float(stock_data['Close'].iloc[-1])
+            stock_sma_current = float(stock_sma_50.iloc[-1])
 
             if stock_close < stock_sma_current:
                 stocks_below_sma += 1
@@ -274,8 +274,8 @@ class FailureModeDetector:
         """
         # Check if VIX is above its 20-day SMA
         vix_sma_20 = calculate_sma(vix_data['Close'], 20)
-        vix_close = vix_data['Close'].iloc[-1]
-        vix_sma_current = vix_sma_20.iloc[-1]
+        vix_close = float(vix_data['Close'].iloc[-1])
+        vix_sma_current = float(vix_sma_20.iloc[-1])
         vix_elevated = vix_close > vix_sma_current
 
         # Check if SPY red days show increasing volume

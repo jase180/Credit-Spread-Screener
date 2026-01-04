@@ -74,8 +74,8 @@ class RelativeStrengthGate:
 
         # Calculate stock 50-day SMA
         stock_sma_50 = calculate_sma(stock_data['Close'], self.sma_period)
-        stock_close = stock_data['Close'].iloc[-1]
-        stock_sma_current = stock_sma_50.iloc[-1]
+        stock_close = float(stock_data['Close'].iloc[-1])
+        stock_sma_current = float(stock_sma_50.iloc[-1])
 
         # Check 2: Stock close > stock 50-day SMA
         above_sma = stock_close > stock_sma_current

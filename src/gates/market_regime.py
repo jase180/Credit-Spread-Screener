@@ -60,9 +60,9 @@ class MarketRegimeGate:
         # Calculate SPY 50-day SMA
         spy_sma_50 = calculate_sma(spy_data['Close'], self.sma_period)
 
-        # Get current values
-        spy_close = spy_data['Close'].iloc[-1]
-        spy_sma_current = spy_sma_50.iloc[-1]
+        # Get current values (convert to float to avoid pandas Series issues)
+        spy_close = float(spy_data['Close'].iloc[-1])
+        spy_sma_current = float(spy_sma_50.iloc[-1])
 
         # Check 1: SPY close > 50-day SMA
         above_sma = spy_close > spy_sma_current

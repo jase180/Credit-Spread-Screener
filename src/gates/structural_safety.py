@@ -80,11 +80,11 @@ class StructuralSafetyGate:
                 - suggested_strike_max: Maximum safe strike price
         """
         # Calculate support levels
-        stock_close = stock_data['Close'].iloc[-1]
+        stock_close = float(stock_data['Close'].iloc[-1])
 
         # Level 1: 50-day SMA
         stock_sma_50 = calculate_sma(stock_data['Close'], self.sma_period)
-        sma_level = stock_sma_50.iloc[-1]
+        sma_level = float(stock_sma_50.iloc[-1])
 
         # Level 2: Most recent higher low
         higher_low_level = find_most_recent_higher_low(stock_data['Low'], lookback=60)
@@ -99,7 +99,7 @@ class StructuralSafetyGate:
             stock_data['Close'],
             self.atr_period
         )
-        current_atr = atr.iloc[-1]
+        current_atr = float(atr.iloc[-1])
         min_strike_distance = self.atr_multiplier * current_atr
 
         # Determine the maximum safe strike (below all support levels)
