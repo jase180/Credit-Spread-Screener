@@ -1,0 +1,637 @@
+$SQ: possibly delisted; no price data found  (period=6mo) (Yahoo error = "No data found, symbol may be delisted")
+
+1 Failed download:
+['SQ']: possibly delisted; no price data found  (period=6mo) (Yahoo error = "No data found, symbol may be delisted")
+$UNR: possibly delisted; no price data found  (period=6mo)
+
+1 Failed download:
+['UNR']: possibly delisted; no price data found  (period=6mo)
+HTTP Error 404: {"quoteSummary":{"result":null,"error":{"code":"Not Found","description":"No fundamentals data found for symbol: SPY"}}}
+HTTP Error 404: {"quoteSummary":{"result":null,"error":{"code":"Not Found","description":"No fundamentals data found for symbol: QQQ"}}}
+HTTP Error 404: {"quoteSummary":{"result":null,"error":{"code":"Not Found","description":"No fundamentals data found for symbol: IWM"}}}
+📋 Loaded 111 ticker(s) from watchlist.txt
+
+
+╔==============================================================================╗
+║                    CREDIT SPREAD SCREENER                                    ║
+║                      2026-01-04 16:12:24                                 ║
+╚==============================================================================╝
+
+📊 Fetching market data...
+  Fetching SPY... ✓ (127 days)
+  Fetching VIX... ✓ (128 days)
+  Fetching 111 stocks...
+    [1/111] AAPL: ✓ (127 days)
+    [2/111] MSFT: ✓ (127 days)
+    [3/111] GOOGL: ✓ (127 days)
+    [4/111] AMZN: ✓ (127 days)
+    [5/111] NVDA: ✓ (127 days)
+    [6/111] META: ✓ (127 days)
+    [7/111] TSLA: ✓ (127 days)
+    [8/111] AMD: ✓ (127 days)
+    [9/111] INTC: ✓ (127 days)
+    [10/111] ORCL: ✓ (127 days)
+    [11/111] CRM: ✓ (127 days)
+    [12/111] ADBE: ✓ (127 days)
+    [13/111] CSCO: ✓ (127 days)
+    [14/111] AVGO: ✓ (127 days)
+    [15/111] QCOM: ✓ (127 days)
+    [16/111] JPM: ✓ (127 days)
+    [17/111] BAC: ✓ (127 days)
+    [18/111] WFC: ✓ (127 days)
+    [19/111] GS: ✓ (127 days)
+    [20/111] MS: ✓ (127 days)
+    [21/111] C: ✓ (127 days)
+    [22/111] BLK: ✓ (127 days)
+    [23/111] SCHW: ✓ (127 days)
+    [24/111] AXP: ✓ (127 days)
+    [25/111] V: ✓ (127 days)
+    [26/111] MA: ✓ (127 days)
+    [27/111] UNH: ✓ (127 days)
+    [28/111] JNJ: ✓ (127 days)
+    [29/111] LLY: ✓ (127 days)
+    [30/111] ABBV: ✓ (127 days)
+    [31/111] MRK: ✓ (127 days)
+    [32/111] PFE: ✓ (127 days)
+    [33/111] TMO: ✓ (127 days)
+    [34/111] ABT: ✓ (127 days)
+    [35/111] DHR: ✓ (127 days)
+    [36/111] BMY: ✓ (127 days)
+    [37/111] AMGN: ✓ (127 days)
+    [38/111] GILD: ✓ (127 days)
+    [39/111] WMT: ✓ (127 days)
+    [40/111] HD: ✓ (127 days)
+    [41/111] MCD: ✓ (127 days)
+    [42/111] NKE: ✓ (127 days)
+    [43/111] SBUX: ✓ (127 days)
+    [44/111] TGT: ✓ (127 days)
+    [45/111] LOW: ✓ (127 days)
+    [46/111] COST: ✓ (127 days)
+    [47/111] PG: ✓ (127 days)
+    [48/111] KO: ✓ (127 days)
+    [49/111] PEP: ✓ (127 days)
+    [50/111] MDLZ: ✓ (127 days)
+    [51/111] CAT: ✓ (127 days)
+    [52/111] BA: ✓ (127 days)
+    [53/111] GE: ✓ (127 days)
+    [54/111] MMM: ✓ (127 days)
+    [55/111] HON: ✓ (127 days)
+    [56/111] UPS: ✓ (127 days)
+    [57/111] RTX: ✓ (127 days)
+    [58/111] LMT: ✓ (127 days)
+    [59/111] DE: ✓ (127 days)
+    [60/111] XOM: ✓ (127 days)
+    [61/111] CVX: ✓ (127 days)
+    [62/111] COP: ✓ (127 days)
+    [63/111] SLB: ✓ (127 days)
+    [64/111] EOG: ✓ (127 days)
+    [65/111] MPC: ✓ (127 days)
+    [66/111] PSX: ✓ (127 days)
+    [67/111] SHOP: ✓ (127 days)
+    [68/111] SQ: ⚠ No data
+    [69/111] COIN: ✓ (127 days)
+    [70/111] PLTR: ✓ (127 days)
+    [71/111] SNOW: ✓ (127 days)
+    [72/111] NET: ✓ (127 days)
+    [73/111] DDOG: ✓ (127 days)
+    [74/111] ZS: ✓ (127 days)
+    [75/111] CRWD: ✓ (127 days)
+    [76/111] MDB: ✓ (127 days)
+    [77/111] DIS: ✓ (127 days)
+    [78/111] NFLX: ✓ (127 days)
+    [79/111] CMCSA: ✓ (127 days)
+    [80/111] T: ✓ (127 days)
+    [81/111] VZ: ✓ (127 days)
+    [82/111] TMUS: ✓ (127 days)
+    [83/111] AMT: ✓ (127 days)
+    [84/111] PLD: ✓ (127 days)
+    [85/111] EQIX: ✓ (127 days)
+    [86/111] SPG: ✓ (127 days)
+    [87/111] TSM: ✓ (127 days)
+    [88/111] ASML: ✓ (127 days)
+    [89/111] AMAT: ✓ (127 days)
+    [90/111] LRCX: ✓ (127 days)
+    [91/111] KLAC: ✓ (127 days)
+    [92/111] MU: ✓ (127 days)
+    [93/111] MRVL: ✓ (127 days)
+    [94/111] VRTX: ✓ (127 days)
+    [95/111] REGN: ✓ (127 days)
+    [96/111] BIIB: ✓ (127 days)
+    [97/111] MRNA: ✓ (127 days)
+    [98/111] PYPL: ✓ (127 days)
+    [99/111] AFRM: ✓ (127 days)
+    [100/111] SOFI: ✓ (127 days)
+    [101/111] UNR: ⚠ No data
+    [102/111] LUV: ✓ (127 days)
+    [103/111] DAL: ✓ (127 days)
+    [104/111] AAL: ✓ (127 days)
+    [105/111] AMZN: ✓ (127 days)
+    [106/111] BABA: ✓ (127 days)
+    [107/111] F: ✓ (127 days)
+    [108/111] GM: ✓ (127 days)
+    [109/111] SPY: ✓ (127 days)
+    [110/111] QQQ: ✓ (127 days)
+    [111/111] IWM: ✓ (127 days)
+
+  ⚠ Warning: Could not fetch data for 2 ticker(s): SQ, UNR
+
+✓ Successfully fetched data for 108 stocks
+
+📅 Fetching earnings dates...
+  ✓ Found 2 cached earnings (< 7 days old)
+  Updating 106 stale/missing earnings from yfinance...
+    [1/106] GOOGL: 2026-02-03
+    [2/106] AMZN: 2026-02-05
+    [3/106] NVDA: 2026-02-25
+    [4/106] META: 2026-01-28
+    [5/106] TSLA: 2026-01-28
+    [6/106] AMD: 2026-02-03
+    [7/106] INTC: 2026-01-29
+    [8/106] ORCL: 2026-03-09
+    [9/106] CRM: 2026-02-25
+    [10/106] ADBE: 2026-03-12
+    [11/106] CSCO: 2026-02-11
+    [12/106] AVGO: 2026-03-04
+    [13/106] QCOM: 2026-02-04
+    [14/106] JPM: 2026-01-13
+    [15/106] BAC: 2026-01-14
+    [16/106] WFC: 2026-01-14
+    [17/106] GS: 2026-01-15
+    [18/106] MS: 2026-01-15
+    [19/106] C: 2026-01-14
+    [20/106] BLK: 2026-01-15
+    [21/106] SCHW: 2026-01-21
+    [22/106] AXP: 2026-01-30
+    [23/106] V: 2026-01-27
+    [24/106] MA: 2026-01-29
+    [25/106] UNH: 2026-01-27
+    [26/106] JNJ: 2026-01-21
+    [27/106] LLY: 2026-02-04
+    [28/106] ABBV: 2026-02-06
+    [29/106] MRK: 2026-02-03
+    [30/106] PFE: 2026-02-03
+    [31/106] TMO: 2026-01-29
+    [32/106] ABT: 2026-01-21
+    [33/106] DHR: 2026-01-28
+    [34/106] BMY: 2026-02-05
+    [35/106] AMGN: 2026-02-03
+    [36/106] GILD: 2026-02-10
+    [37/106] WMT: 2026-02-19
+    [38/106] HD: 2026-02-24
+    [39/106] MCD: 2026-02-09
+    [40/106] NKE: 2025-12-18
+    [41/106] SBUX: 2026-01-27
+    [42/106] TGT: 2025-11-19
+    [43/106] LOW: 2026-02-25
+    [44/106] COST: 2026-03-05
+    [45/106] PG: 2026-01-22
+    [46/106] KO: 2026-02-10
+    [47/106] PEP: 2026-02-03
+    [48/106] MDLZ: 2026-02-03
+    [49/106] CAT: 2026-01-29
+    [50/106] BA: 2026-01-28
+    [51/106] GE: 2026-01-22
+    [52/106] MMM: 2026-01-20
+    [53/106] HON: 2026-01-29
+    [54/106] UPS: 2026-01-27
+    [55/106] RTX: 2026-01-27
+    [56/106] LMT: 2026-01-27
+    [57/106] DE: 2026-02-12
+    [58/106] XOM: 2026-01-30
+    [59/106] CVX: 2026-01-30
+    [60/106] COP: 2026-02-05
+    [61/106] SLB: 2026-01-23
+    [62/106] EOG: 2025-11-06
+    [63/106] MPC: 2026-02-03
+    [64/106] PSX: 2026-02-04
+    [65/106] SHOP: 2026-02-11
+    [66/106] COIN: 2025-10-30
+    [67/106] PLTR: 2026-02-02
+    [68/106] SNOW: 2025-12-03
+    [69/106] NET: 2025-10-30
+    [70/106] DDOG: 2025-11-06
+    [71/106] ZS: 2026-03-05
+    [72/106] CRWD: 2026-03-10
+    [73/106] MDB: 2025-12-01
+    [74/106] DIS: 2026-02-04
+    [75/106] NFLX: 2026-01-20
+    [76/106] CMCSA: 2026-01-29
+    [77/106] T: 2026-01-28
+    [78/106] VZ: 2026-01-30
+    [79/106] TMUS: 2026-02-11
+    [80/106] AMT: 2025-10-28
+    [81/106] PLD: 2026-01-21
+    [82/106] EQIX: 2025-10-29
+    [83/106] SPG: 2025-11-03
+    [84/106] TSM: 2026-01-15
+    [85/106] ASML: 2026-01-28
+    [86/106] AMAT: 2026-02-12
+    [87/106] LRCX: 2026-01-28
+    [88/106] KLAC: 2026-01-29
+    [89/106] MU: 2025-12-17
+    [90/106] MRVL: 2026-03-05
+    [91/106] VRTX: 2026-02-09
+    [92/106] REGN: 2026-01-30
+    [93/106] BIIB: 2026-02-11
+    [94/106] MRNA: 2025-11-06
+    [95/106] PYPL: 2025-10-28
+    [96/106] AFRM: 2026-02-05
+    [97/106] SOFI: 2026-01-30
+    [98/106] LUV: 2026-01-28
+    [99/106] DAL: 2026-01-13
+    [100/106] AAL: 2026-01-22
+    [101/106] BABA: 2026-02-19
+    [102/106] F: 2026-02-10
+    [103/106] GM: 2026-01-27
+    [104/106] SPY: None
+    [105/106] QQQ: None
+    [106/106] IWM: None
+
+  ✓ Earnings dates for 105/108 tickers
+
+📈 Fetching IV Rank from Tradier...
+  ✓ Connected to Tradier (production)
+WARNING: IV Rank for AAPL is approximated. Current IV: 23.6%
+         For accurate IV Rank, use Market Chameleon or similar service.
+    [1/108] AAPL: IV Rank: 19.066711111111108
+WARNING: IV Rank for MSFT is approximated. Current IV: 27.0%
+         For accurate IV Rank, use Market Chameleon or similar service.
+    [2/108] MSFT: IV Rank: 26.58531111111112
+WARNING: IV Rank for GOOGL is approximated. Current IV: 34.0%
+         For accurate IV Rank, use Market Chameleon or similar service.
+    [3/108] GOOGL: IV Rank: 42.26450793650792
+WARNING: IV Rank for AMZN is approximated. Current IV: 35.7%
+         For accurate IV Rank, use Market Chameleon or similar service.
+    [4/108] AMZN: IV Rank: 45.96019444444443
+WARNING: IV Rank for NVDA is approximated. Current IV: 37.8%
+         For accurate IV Rank, use Market Chameleon or similar service.
+    [5/108] NVDA: IV Rank: 50.635027777777786
+WARNING: IV Rank for META is approximated. Current IV: 36.7%
+         For accurate IV Rank, use Market Chameleon or similar service.
+    [6/108] META: IV Rank: 48.189136752136754
+WARNING: IV Rank for TSLA is approximated. Current IV: 47.3%
+         For accurate IV Rank, use Market Chameleon or similar service.
+    [7/108] TSLA: IV Rank: 71.8243472222222
+WARNING: IV Rank for AMD is approximated. Current IV: 54.5%
+         For accurate IV Rank, use Market Chameleon or similar service.
+    [8/108] AMD: IV Rank: 87.7460277777778
+WARNING: IV Rank for INTC is approximated. Current IV: 53.8%
+         For accurate IV Rank, use Market Chameleon or similar service.
+    [9/108] INTC: IV Rank: 86.31252777777777
+WARNING: IV Rank for ORCL is approximated. Current IV: 42.4%
+         For accurate IV Rank, use Market Chameleon or similar service.
+    [10/108] ORCL: IV Rank: 60.86941666666667
+WARNING: IV Rank for CRM is approximated. Current IV: 27.5%
+         For accurate IV Rank, use Market Chameleon or similar service.
+    [11/108] CRM: IV Rank: 27.82142222222222
+WARNING: IV Rank for ADBE is approximated. Current IV: 26.6%
+         For accurate IV Rank, use Market Chameleon or similar service.
+    [12/108] ADBE: IV Rank: 25.809055555555556
+WARNING: IV Rank for CSCO is approximated. Current IV: 27.6%
+         For accurate IV Rank, use Market Chameleon or similar service.
+    [13/108] CSCO: IV Rank: 28.102396825396823
+WARNING: IV Rank for AVGO is approximated. Current IV: 41.9%
+         For accurate IV Rank, use Market Chameleon or similar service.
+    [14/108] AVGO: IV Rank: 59.86665079365079
+WARNING: IV Rank for QCOM is approximated. Current IV: 36.1%
+         For accurate IV Rank, use Market Chameleon or similar service.
+    [15/108] QCOM: IV Rank: 46.81091666666668
+WARNING: IV Rank for JPM is approximated. Current IV: 24.1%
+         For accurate IV Rank, use Market Chameleon or similar service.
+    [16/108] JPM: IV Rank: 20.2115873015873
+WARNING: IV Rank for BAC is approximated. Current IV: 24.8%
+         For accurate IV Rank, use Market Chameleon or similar service.
+    [17/108] BAC: IV Rank: 21.840888888888884
+WARNING: IV Rank for WFC is approximated. Current IV: 28.4%
+         For accurate IV Rank, use Market Chameleon or similar service.
+    [18/108] WFC: IV Rank: 29.800049382716054
+WARNING: IV Rank for GS is approximated. Current IV: 29.3%
+         For accurate IV Rank, use Market Chameleon or similar service.
+    [19/108] GS: IV Rank: 31.875959064327482
+WARNING: IV Rank for MS is approximated. Current IV: 26.2%
+         For accurate IV Rank, use Market Chameleon or similar service.
+    [20/108] MS: IV Rank: 24.80372222222222
+WARNING: IV Rank for C is approximated. Current IV: 29.0%
+         For accurate IV Rank, use Market Chameleon or similar service.
+    [21/108] C: IV Rank: 31.160037037037025
+WARNING: IV Rank for BLK is approximated. Current IV: 24.0%
+         For accurate IV Rank, use Market Chameleon or similar service.
+    [22/108] BLK: IV Rank: 19.922333333333338
+WARNING: IV Rank for SCHW is approximated. Current IV: 26.9%
+         For accurate IV Rank, use Market Chameleon or similar service.
+    [23/108] SCHW: IV Rank: 26.43281111111111
+WARNING: IV Rank for AXP is approximated. Current IV: 27.3%
+         For accurate IV Rank, use Market Chameleon or similar service.
+    [24/108] AXP: IV Rank: 27.238125000000004
+WARNING: IV Rank for V is approximated. Current IV: 20.6%
+         For accurate IV Rank, use Market Chameleon or similar service.
+    [25/108] V: IV Rank: 12.51128571428572
+WARNING: IV Rank for MA is approximated. Current IV: 22.0%
+         For accurate IV Rank, use Market Chameleon or similar service.
+    [26/108] MA: IV Rank: 15.554037037037041
+WARNING: IV Rank for UNH is approximated. Current IV: 35.7%
+         For accurate IV Rank, use Market Chameleon or similar service.
+    [27/108] UNH: IV Rank: 45.93012698412699
+WARNING: IV Rank for JNJ is approximated. Current IV: 20.1%
+         For accurate IV Rank, use Market Chameleon or similar service.
+    [28/108] JNJ: IV Rank: 11.413222222222224
+WARNING: IV Rank for LLY is approximated. Current IV: 35.5%
+         For accurate IV Rank, use Market Chameleon or similar service.
+    [29/108] LLY: IV Rank: 45.54678835978835
+WARNING: IV Rank for ABBV is approximated. Current IV: 26.4%
+         For accurate IV Rank, use Market Chameleon or similar service.
+    [30/108] ABBV: IV Rank: 25.317511111111113
+WARNING: IV Rank for MRK is approximated. Current IV: 25.6%
+         For accurate IV Rank, use Market Chameleon or similar service.
+    [31/108] MRK: IV Rank: 23.65853333333333
+WARNING: IV Rank for PFE is approximated. Current IV: 23.1%
+         For accurate IV Rank, use Market Chameleon or similar service.
+    [32/108] PFE: IV Rank: 17.957888888888892
+WARNING: IV Rank for TMO is approximated. Current IV: 27.7%
+         For accurate IV Rank, use Market Chameleon or similar service.
+    [33/108] TMO: IV Rank: 28.15084259259259
+WARNING: IV Rank for ABT is approximated. Current IV: 20.7%
+         For accurate IV Rank, use Market Chameleon or similar service.
+    [34/108] ABT: IV Rank: 12.728538461538458
+WARNING: IV Rank for DHR is approximated. Current IV: 28.4%
+         For accurate IV Rank, use Market Chameleon or similar service.
+    [35/108] DHR: IV Rank: 29.76017777777778
+WARNING: IV Rank for BMY is approximated. Current IV: 27.4%
+         For accurate IV Rank, use Market Chameleon or similar service.
+    [36/108] BMY: IV Rank: 27.583388888888894
+WARNING: IV Rank for AMGN is approximated. Current IV: 27.7%
+         For accurate IV Rank, use Market Chameleon or similar service.
+    [37/108] AMGN: IV Rank: 28.272703703703705
+WARNING: IV Rank for GILD is approximated. Current IV: 27.9%
+         For accurate IV Rank, use Market Chameleon or similar service.
+    [38/108] GILD: IV Rank: 28.704462962962957
+WARNING: IV Rank for WMT is approximated. Current IV: 21.7%
+         For accurate IV Rank, use Market Chameleon or similar service.
+    [39/108] WMT: IV Rank: 14.996454545454544
+WARNING: IV Rank for HD is approximated. Current IV: 21.1%
+         For accurate IV Rank, use Market Chameleon or similar service.
+    [40/108] HD: IV Rank: 13.463999999999988
+WARNING: IV Rank for MCD is approximated. Current IV: 18.6%
+         For accurate IV Rank, use Market Chameleon or similar service.
+    [41/108] MCD: IV Rank: 8.00774074074074
+WARNING: IV Rank for NKE is approximated. Current IV: 29.3%
+         For accurate IV Rank, use Market Chameleon or similar service.
+    [42/108] NKE: IV Rank: 31.773666666666657
+WARNING: IV Rank for SBUX is approximated. Current IV: 37.0%
+         For accurate IV Rank, use Market Chameleon or similar service.
+    [43/108] SBUX: IV Rank: 48.82530864197529
+WARNING: IV Rank for TGT is approximated. Current IV: 34.7%
+         For accurate IV Rank, use Market Chameleon or similar service.
+    [44/108] TGT: IV Rank: 43.669566666666654
+WARNING: IV Rank for LOW is approximated. Current IV: 21.7%
+         For accurate IV Rank, use Market Chameleon or similar service.
+    [45/108] LOW: IV Rank: 14.825400000000002
+WARNING: IV Rank for COST is approximated. Current IV: 19.3%
+         For accurate IV Rank, use Market Chameleon or similar service.
+    [46/108] COST: IV Rank: 9.503836601307201
+WARNING: IV Rank for PG is approximated. Current IV: 20.4%
+         For accurate IV Rank, use Market Chameleon or similar service.
+    [47/108] PG: IV Rank: 12.042777777777781
+WARNING: IV Rank for KO is approximated. Current IV: 19.5%
+         For accurate IV Rank, use Market Chameleon or similar service.
+    [48/108] KO: IV Rank: 10.110523809523807
+WARNING: IV Rank for PEP is approximated. Current IV: 21.2%
+         For accurate IV Rank, use Market Chameleon or similar service.
+    [49/108] PEP: IV Rank: 13.811436507936502
+WARNING: IV Rank for MDLZ is approximated. Current IV: 30.0%
+         For accurate IV Rank, use Market Chameleon or similar service.
+    [50/108] MDLZ: IV Rank: 33.31148148148147
+WARNING: IV Rank for CAT is approximated. Current IV: 35.8%
+         For accurate IV Rank, use Market Chameleon or similar service.
+    [51/108] CAT: IV Rank: 46.32447222222223
+WARNING: IV Rank for BA is approximated. Current IV: 29.5%
+         For accurate IV Rank, use Market Chameleon or similar service.
+    [52/108] BA: IV Rank: 32.16075000000001
+WARNING: IV Rank for GE is approximated. Current IV: 31.6%
+         For accurate IV Rank, use Market Chameleon or similar service.
+    [53/108] GE: IV Rank: 36.89773015873016
+WARNING: IV Rank for MMM is approximated. Current IV: 27.8%
+         For accurate IV Rank, use Market Chameleon or similar service.
+    [54/108] MMM: IV Rank: 28.403148148148137
+WARNING: IV Rank for HON is approximated. Current IV: 23.9%
+         For accurate IV Rank, use Market Chameleon or similar service.
+    [55/108] HON: IV Rank: 19.798944444444448
+WARNING: IV Rank for UPS is approximated. Current IV: 32.3%
+         For accurate IV Rank, use Market Chameleon or similar service.
+    [56/108] UPS: IV Rank: 38.484646464646474
+WARNING: IV Rank for RTX is approximated. Current IV: 25.3%
+         For accurate IV Rank, use Market Chameleon or similar service.
+    [57/108] RTX: IV Rank: 22.903861111111112
+WARNING: IV Rank for LMT is approximated. Current IV: 24.4%
+         For accurate IV Rank, use Market Chameleon or similar service.
+    [58/108] LMT: IV Rank: 20.97853333333334
+WARNING: IV Rank for DE is approximated. Current IV: 22.9%
+         For accurate IV Rank, use Market Chameleon or similar service.
+    [59/108] DE: IV Rank: 17.651955555555553
+WARNING: IV Rank for XOM is approximated. Current IV: 24.2%
+         For accurate IV Rank, use Market Chameleon or similar service.
+    [60/108] XOM: IV Rank: 20.42288888888888
+WARNING: IV Rank for CVX is approximated. Current IV: 20.5%
+         For accurate IV Rank, use Market Chameleon or similar service.
+    [61/108] CVX: IV Rank: 12.303999999999998
+WARNING: IV Rank for COP is approximated. Current IV: 28.9%
+         For accurate IV Rank, use Market Chameleon or similar service.
+    [62/108] COP: IV Rank: 30.97329999999999
+WARNING: IV Rank for SLB is approximated. Current IV: 32.1%
+         For accurate IV Rank, use Market Chameleon or similar service.
+    [63/108] SLB: IV Rank: 38.01172222222222
+WARNING: IV Rank for EOG is approximated. Current IV: 26.7%
+         For accurate IV Rank, use Market Chameleon or similar service.
+    [64/108] EOG: IV Rank: 25.89153535353535
+WARNING: IV Rank for MPC is approximated. Current IV: 28.9%
+         For accurate IV Rank, use Market Chameleon or similar service.
+    [65/108] MPC: IV Rank: 30.908555555555555
+WARNING: IV Rank for PSX is approximated. Current IV: 25.2%
+         For accurate IV Rank, use Market Chameleon or similar service.
+    [66/108] PSX: IV Rank: 22.668025641025647
+WARNING: IV Rank for SHOP is approximated. Current IV: 50.2%
+         For accurate IV Rank, use Market Chameleon or similar service.
+    [67/108] SHOP: IV Rank: 78.20776190476191
+WARNING: IV Rank for COIN is approximated. Current IV: 53.5%
+         For accurate IV Rank, use Market Chameleon or similar service.
+    [68/108] COIN: IV Rank: 85.54737777777775
+WARNING: IV Rank for PLTR is approximated. Current IV: 56.8%
+         For accurate IV Rank, use Market Chameleon or similar service.
+    [69/108] PLTR: IV Rank: 92.85480555555554
+WARNING: IV Rank for SNOW is approximated. Current IV: 36.5%
+         For accurate IV Rank, use Market Chameleon or similar service.
+    [70/108] SNOW: IV Rank: 47.854
+WARNING: IV Rank for NET is approximated. Current IV: 56.8%
+         For accurate IV Rank, use Market Chameleon or similar service.
+    [71/108] NET: IV Rank: 92.99169444444446
+WARNING: IV Rank for DDOG is approximated. Current IV: 45.1%
+         For accurate IV Rank, use Market Chameleon or similar service.
+    [72/108] DDOG: IV Rank: 66.85540170940173
+WARNING: IV Rank for ZS is approximated. Current IV: 32.7%
+         For accurate IV Rank, use Market Chameleon or similar service.
+    [73/108] ZS: IV Rank: 39.37380000000002
+WARNING: IV Rank for CRWD is approximated. Current IV: 34.0%
+         For accurate IV Rank, use Market Chameleon or similar service.
+    [74/108] CRWD: IV Rank: 42.174234567901244
+WARNING: IV Rank for MDB is approximated. Current IV: 40.4%
+         For accurate IV Rank, use Market Chameleon or similar service.
+    [75/108] MDB: IV Rank: 56.485888888888894
+WARNING: IV Rank for DIS is approximated. Current IV: 28.5%
+         For accurate IV Rank, use Market Chameleon or similar service.
+    [76/108] DIS: IV Rank: 29.900646464646464
+WARNING: IV Rank for NFLX is approximated. Current IV: 39.0%
+         For accurate IV Rank, use Market Chameleon or similar service.
+    [77/108] NFLX: IV Rank: 53.349234567901235
+WARNING: IV Rank for CMCSA is approximated. Current IV: 41.3%
+         For accurate IV Rank, use Market Chameleon or similar service.
+    [78/108] CMCSA: IV Rank: 58.4365925925926
+WARNING: IV Rank for T is approximated. Current IV: 24.5%
+         For accurate IV Rank, use Market Chameleon or similar service.
+    [79/108] T: IV Rank: 21.096277777777775
+WARNING: IV Rank for VZ is approximated. Current IV: 26.4%
+         For accurate IV Rank, use Market Chameleon or similar service.
+    [80/108] VZ: IV Rank: 25.389833333333335
+WARNING: IV Rank for TMUS is approximated. Current IV: 28.0%
+         For accurate IV Rank, use Market Chameleon or similar service.
+    [81/108] TMUS: IV Rank: 28.92494444444445
+WARNING: IV Rank for AMT is approximated. Current IV: 22.5%
+         For accurate IV Rank, use Market Chameleon or similar service.
+    [82/108] AMT: IV Rank: 16.589259259259272
+WARNING: IV Rank for PLD is approximated. Current IV: 24.7%
+         For accurate IV Rank, use Market Chameleon or similar service.
+    [83/108] PLD: IV Rank: 21.449592592592587
+WARNING: IV Rank for EQIX is approximated. Current IV: 23.8%
+         For accurate IV Rank, use Market Chameleon or similar service.
+    [84/108] EQIX: IV Rank: 19.56030555555556
+WARNING: IV Rank for SPG is approximated. Current IV: 21.1%
+         For accurate IV Rank, use Market Chameleon or similar service.
+    [85/108] SPG: IV Rank: 13.643305555555557
+WARNING: IV Rank for TSM is approximated. Current IV: 37.4%
+         For accurate IV Rank, use Market Chameleon or similar service.
+    [86/108] TSM: IV Rank: 49.742984126984105
+WARNING: IV Rank for ASML is approximated. Current IV: 43.3%
+         For accurate IV Rank, use Market Chameleon or similar service.
+    [87/108] ASML: IV Rank: 62.7914797979798
+WARNING: IV Rank for AMAT is approximated. Current IV: 42.5%
+         For accurate IV Rank, use Market Chameleon or similar service.
+    [88/108] AMAT: IV Rank: 61.153800000000004
+WARNING: IV Rank for LRCX is approximated. Current IV: 52.3%
+         For accurate IV Rank, use Market Chameleon or similar service.
+    [89/108] LRCX: IV Rank: 82.9058253968254
+WARNING: IV Rank for KLAC is approximated. Current IV: 38.9%
+         For accurate IV Rank, use Market Chameleon or similar service.
+    [90/108] KLAC: IV Rank: 53.15548148148148
+WARNING: IV Rank for MU is approximated. Current IV: 59.3%
+         For accurate IV Rank, use Market Chameleon or similar service.
+    [91/108] MU: IV Rank: 98.35339682539684
+WARNING: IV Rank for MRVL is approximated. Current IV: 48.2%
+         For accurate IV Rank, use Market Chameleon or similar service.
+    [92/108] MRVL: IV Rank: 73.84133333333334
+WARNING: IV Rank for VRTX is approximated. Current IV: 30.5%
+         For accurate IV Rank, use Market Chameleon or similar service.
+    [93/108] VRTX: IV Rank: 34.35338271604938
+WARNING: IV Rank for REGN is approximated. Current IV: 36.5%
+         For accurate IV Rank, use Market Chameleon or similar service.
+    [94/108] REGN: IV Rank: 47.87922222222221
+WARNING: IV Rank for BIIB is approximated. Current IV: 34.6%
+         For accurate IV Rank, use Market Chameleon or similar service.
+    [95/108] BIIB: IV Rank: 43.606920634920634
+/mnt/c/Users/jase1/repos/Credit-Spread-Screener/src/gates/market_regime.py:64: FutureWarning: Calling float on a single element Series is deprecated and will raise a TypeError in the future. Use float(ser.iloc[0]) instead
+  spy_close = float(spy_data['Close'].iloc[-1])
+/mnt/c/Users/jase1/repos/Credit-Spread-Screener/src/gates/market_regime.py:65: FutureWarning: Calling float on a single element Series is deprecated and will raise a TypeError in the future. Use float(ser.iloc[0]) instead
+  spy_sma_current = float(spy_sma_50.iloc[-1])
+/mnt/c/Users/jase1/repos/Credit-Spread-Screener/src/utils/data_helpers.py:39: FutureWarning: Calling float on a single element Series is deprecated and will raise a TypeError in the future. Use float(ser.iloc[0]) instead
+  current = float(sma.iloc[-1])
+/mnt/c/Users/jase1/repos/Credit-Spread-Screener/src/utils/data_helpers.py:40: FutureWarning: Calling float on a single element Series is deprecated and will raise a TypeError in the future. Use float(ser.iloc[0]) instead
+  previous = float(sma.iloc[-(lookback + 1)])
+/mnt/c/Users/jase1/repos/Credit-Spread-Screener/src/utils/data_helpers.py:142: FutureWarning: Calling float on a single element Series is deprecated and will raise a TypeError in the future. Use float(ser.iloc[0]) instead
+  current = float(series.iloc[-1])
+/mnt/c/Users/jase1/repos/Credit-Spread-Screener/src/utils/data_helpers.py:143: FutureWarning: Calling float on a single element Series is deprecated and will raise a TypeError in the future. Use float(ser.iloc[0]) instead
+  previous = float(series.iloc[-(period + 1)])
+/mnt/c/Users/jase1/repos/Credit-Spread-Screener/src/monitors/failure_modes.py:84: FutureWarning: Calling float on a single element Series is deprecated and will raise a TypeError in the future. Use float(ser.iloc[0]) instead
+  spy_close = float(spy_data['Close'].iloc[-1])
+/mnt/c/Users/jase1/repos/Credit-Spread-Screener/src/monitors/failure_modes.py:85: FutureWarning: Calling float on a single element Series is deprecated and will raise a TypeError in the future. Use float(ser.iloc[0]) instead
+  spy_sma_current = float(spy_sma_50.iloc[-1])
+/mnt/c/Users/jase1/repos/Credit-Spread-Screener/src/monitors/failure_modes.py:277: FutureWarning: Calling float on a single element Series is deprecated and will raise a TypeError in the future. Use float(ser.iloc[0]) instead
+  vix_close = float(vix_data['Close'].iloc[-1])
+/mnt/c/Users/jase1/repos/Credit-Spread-Screener/src/monitors/failure_modes.py:278: FutureWarning: Calling float on a single element Series is deprecated and will raise a TypeError in the future. Use float(ser.iloc[0]) instead
+  vix_sma_current = float(vix_sma_20.iloc[-1])
+/mnt/c/Users/jase1/repos/Credit-Spread-Screener/src/monitors/failure_modes.py:225: FutureWarning: Calling float on a single element Series is deprecated and will raise a TypeError in the future. Use float(ser.iloc[0]) instead
+  stock_close = float(stock_data['Close'].iloc[-1])
+/mnt/c/Users/jase1/repos/Credit-Spread-Screener/src/monitors/failure_modes.py:226: FutureWarning: Calling float on a single element Series is deprecated and will raise a TypeError in the future. Use float(ser.iloc[0]) instead
+  stock_sma_current = float(stock_sma_50.iloc[-1])
+/mnt/c/Users/jase1/repos/Credit-Spread-Screener/src/utils/data_helpers.py:122: FutureWarning: Calling float on a single element Series is deprecated and will raise a TypeError in the future. Use float(ser.iloc[0]) instead
+  current = float(prices.iloc[-1])
+/mnt/c/Users/jase1/repos/Credit-Spread-Screener/src/utils/data_helpers.py:123: FutureWarning: Calling float on a single element Series is deprecated and will raise a TypeError in the future. Use float(ser.iloc[0]) instead
+  previous = float(prices.iloc[-(period + 1)])
+/mnt/c/Users/jase1/repos/Credit-Spread-Screener/src/gates/relative_strength.py:77: FutureWarning: Calling float on a single element Series is deprecated and will raise a TypeError in the future. Use float(ser.iloc[0]) instead
+  stock_close = float(stock_data['Close'].iloc[-1])
+/mnt/c/Users/jase1/repos/Credit-Spread-Screener/src/gates/relative_strength.py:78: FutureWarning: Calling float on a single element Series is deprecated and will raise a TypeError in the future. Use float(ser.iloc[0]) instead
+  stock_sma_current = float(stock_sma_50.iloc[-1])
+/mnt/c/Users/jase1/repos/Credit-Spread-Screener/src/utils/data_helpers.py:39: FutureWarning: Calling float on a single element Series is deprecated and will raise a TypeError in the future. Use float(ser.iloc[0]) instead
+  current = float(sma.iloc[-1])
+/mnt/c/Users/jase1/repos/Credit-Spread-Screener/src/utils/data_helpers.py:40: FutureWarning: Calling float on a single element Series is deprecated and will raise a TypeError in the future. Use float(ser.iloc[0]) instead
+  previous = float(sma.iloc[-(lookback + 1)])
+/mnt/c/Users/jase1/repos/Credit-Spread-Screener/src/gates/structural_safety.py:83: FutureWarning: Calling float on a single element Series is deprecated and will raise a TypeError in the future. Use float(ser.iloc[0]) instead
+  stock_close = float(stock_data['Close'].iloc[-1])
+/mnt/c/Users/jase1/repos/Credit-Spread-Screener/src/gates/structural_safety.py:87: FutureWarning: Calling float on a single element Series is deprecated and will raise a TypeError in the future. Use float(ser.iloc[0]) instead
+  sma_level = float(stock_sma_50.iloc[-1])
+Traceback (most recent call last):
+  File "/mnt/c/Users/jase1/repos/Credit-Spread-Screener/daily_scan.py", line 458, in <module>
+    main()
+  File "/mnt/c/Users/jase1/repos/Credit-Spread-Screener/daily_scan.py", line 434, in main
+    results = screener.screen(
+              ^^^^^^^^^^^^^^^^
+  File "/mnt/c/Users/jase1/repos/Credit-Spread-Screener/src/screener.py", line 161, in screen
+    ev_result = self.event_volatility_gate.evaluate(
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/mnt/c/Users/jase1/repos/Credit-Spread-Screener/src/gates/event_volatility.py", line 89, in evaluate
+    days_to_earnings = (earnings_date - current_date).days
+                        ~~~~~~~~~~~~~~^~~~~~~~~~~~~~
+TypeError: unsupported operand type(s) for -: 'datetime.date' and 'Timestamp'
+WARNING: IV Rank for MRNA is approximated. Current IV: 60.2%
+         For accurate IV Rank, use Market Chameleon or similar service.
+    [96/108] MRNA: IV Rank: 100
+WARNING: IV Rank for PYPL is approximated. Current IV: 40.4%
+         For accurate IV Rank, use Market Chameleon or similar service.
+    [97/108] PYPL: IV Rank: 56.52714814814814
+WARNING: IV Rank for AFRM is approximated. Current IV: 71.4%
+         For accurate IV Rank, use Market Chameleon or similar service.
+    [98/108] AFRM: IV Rank: 100
+WARNING: IV Rank for SOFI is approximated. Current IV: 61.7%
+         For accurate IV Rank, use Market Chameleon or similar service.
+    [99/108] SOFI: IV Rank: 100
+WARNING: IV Rank for LUV is approximated. Current IV: 38.2%
+         For accurate IV Rank, use Market Chameleon or similar service.
+    [100/108] LUV: IV Rank: 51.486305555555546
+WARNING: IV Rank for DAL is approximated. Current IV: 39.4%
+         For accurate IV Rank, use Market Chameleon or similar service.
+    [101/108] DAL: IV Rank: 54.319920634920635
+WARNING: IV Rank for AAL is approximated. Current IV: 44.0%
+         For accurate IV Rank, use Market Chameleon or similar service.
+    [102/108] AAL: IV Rank: 64.41751851851852
+WARNING: IV Rank for BABA is approximated. Current IV: 36.7%
+         For accurate IV Rank, use Market Chameleon or similar service.
+    [103/108] BABA: IV Rank: 48.13051851851853
+WARNING: IV Rank for F is approximated. Current IV: 31.4%
+         For accurate IV Rank, use Market Chameleon or similar service.
+    [104/108] F: IV Rank: 36.46466666666668
+WARNING: IV Rank for GM is approximated. Current IV: 32.9%
+         For accurate IV Rank, use Market Chameleon or similar service.
+    [105/108] GM: IV Rank: 39.83275308641975
+WARNING: IV Rank for SPY is approximated. Current IV: 12.9%
+         For accurate IV Rank, use Market Chameleon or similar service.
+    [106/108] SPY: IV Rank: N/A
+WARNING: IV Rank for QQQ is approximated. Current IV: 17.7%
+         For accurate IV Rank, use Market Chameleon or similar service.
+    [107/108] QQQ: IV Rank: 6.003381551362676
+WARNING: IV Rank for IWM is approximated. Current IV: 18.3%
+         For accurate IV Rank, use Market Chameleon or similar service.
+    [108/108] IWM: IV Rank: 7.2744755555555525
+
+  ✓ IV Rank for 108/108 tickers
+
+🔍 Running screener...
+
+
+❌ Error: unsupported operand type(s) for -: 'datetime.date' and 'Timestamp'

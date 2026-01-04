@@ -155,36 +155,101 @@ def fetch_market_data(tickers: List[str]) -> tuple:
     return spy_data, vix_data, stock_data_dict
 
 
+def fetch_earnings_from_yfinance(ticker: str) -> Optional[datetime]:
+    """
+    Fetch next earnings date for a ticker using yfinance.
+
+    Args:
+        ticker: Ticker symbol
+
+    Returns:
+        Datetime of next earnings, or None if not available
+    """
+    try:
+        ticker_obj = yf.Ticker(ticker)
+
+        # Try to get earnings calendar
+        if hasattr(ticker_obj, 'calendar') and ticker_obj.calendar is not None:
+            calendar = ticker_obj.calendar
+            if 'Earnings Date' in calendar:
+                earnings_date = calendar['Earnings Date']
+                # Handle both single date and date range
+                if isinstance(earnings_date, list) and len(earnings_date) > 0:
+                    return earnings_date[0]
+                elif hasattr(earnings_date, 'to_pydatetime'):
+                    return earnings_date.to_pydatetime()
+
+        return None
+    except Exception:
+        return None
+
+
+def fetch_earnings_data(tickers: List[str], db: Database) -> Dict[str, Optional[datetime]]:
+    """
+    Fetch earnings dates using hybrid cached + yfinance approach.
+
+    Args:
+        tickers: List of ticker symbols
+        db: Database instance
+
+    Returns:
+        Dictionary mapping ticker to earnings datetime
+    """
+    print(f"\n📅 Fetching earnings dates...")
+
+    # Step 1: Get cached earnings (fresh within 7 days)
+    cached_earnings = db.get_cached_earnings(tickers, max_age_days=7)
+    fresh_count = sum(1 for v in cached_earnings.values() if v is not None)
+    print(f"  ✓ Found {fresh_count} cached earnings (< 7 days old)")
+
+    # Step 2: Find which tickers need refresh
+    stale_tickers = db.get_stale_earnings(tickers, max_age_days=7)
+
+    if stale_tickers:
+        print(f"  Updating {len(stale_tickers)} stale/missing earnings from yfinance...")
+
+        for i, ticker in enumerate(stale_tickers, 1):
+            earnings = fetch_earnings_from_yfinance(ticker)
+            db.update_earnings_cache(ticker, earnings)
+            cached_earnings[ticker] = earnings
+
+            status = earnings.strftime('%Y-%m-%d') if earnings else 'None'
+            print(f"    [{i}/{len(stale_tickers)}] {ticker}: {status}")
+
+    print(f"\n  ✓ Earnings dates for {len([v for v in cached_earnings.values() if v])}/{len(tickers)} tickers")
+
+    return cached_earnings
+
+
 def fetch_options_data(tickers: List[str]) -> tuple:
     """
-    Fetch IV Rank and earnings dates using Tradier (if configured).
+    Fetch IV Rank using Tradier (if configured).
 
     Args:
         tickers: List of ticker symbols
 
     Returns:
-        Tuple of (tradier_provider, iv_rank_dict, earnings_dates_dict)
+        Tuple of (tradier_provider, iv_rank_dict)
     """
     # Check if Tradier is configured
     if not os.getenv('TRADIER_API_KEY'):
-        print("\n⚠ Tradier API not configured - skipping IV Rank and earnings data")
+        print("\n⚠ Tradier API not configured - skipping IV Rank data")
         print("  To enable: Add TRADIER_API_KEY to .env file")
-        return None, None, None
+        return None, None
 
-    print(f"\n📈 Fetching options data from Tradier...")
+    print(f"\n📈 Fetching IV Rank from Tradier...")
 
     try:
         use_sandbox = os.getenv('TRADIER_USE_SANDBOX', 'true').lower() == 'true'
         tradier = TradierProvider(use_sandbox=use_sandbox)
 
         if not tradier.is_available():
-            print("  ⚠ Tradier API unavailable - skipping options data")
-            return None, None, None
+            print("  ⚠ Tradier API unavailable - skipping IV Rank data")
+            return None, None
 
         print(f"  ✓ Connected to Tradier ({'sandbox' if use_sandbox else 'production'})")
 
         iv_rank_dict = {}
-        earnings_dates_dict = {}
 
         for i, ticker in enumerate(tickers, 1):
             # Get IV Rank
@@ -192,22 +257,15 @@ def fetch_options_data(tickers: List[str]) -> tuple:
             if iv_rank is not None:
                 iv_rank_dict[ticker] = iv_rank
 
-            # Get earnings date
-            earnings = tradier.get_earnings_date(ticker)
-            if earnings is not None:
-                earnings_dates_dict[ticker] = earnings
-
-            print(f"    [{i}/{len(tickers)}] {ticker}: IV Rank: {iv_rank if iv_rank else 'N/A'}, "
-                  f"Earnings: {earnings.strftime('%Y-%m-%d') if earnings else 'N/A'}")
+            print(f"    [{i}/{len(tickers)}] {ticker}: IV Rank: {iv_rank if iv_rank else 'N/A'}")
 
         print(f"\n  ✓ IV Rank for {len(iv_rank_dict)}/{len(tickers)} tickers")
-        print(f"  ✓ Earnings for {len(earnings_dates_dict)}/{len(tickers)} tickers")
 
-        return tradier, iv_rank_dict, earnings_dates_dict
+        return tradier, iv_rank_dict
 
     except Exception as e:
         print(f"  ⚠ Tradier error: {e}")
-        return None, None, None
+        return None, None
 
 
 def print_header():
@@ -358,11 +416,17 @@ def main():
     # Print header
     print_header()
 
+    # Initialize database (needed for earnings cache)
+    db = Database()
+
     # Fetch market data
     spy_data, vix_data, stock_data_dict = fetch_market_data(tickers)
 
-    # Fetch options data (if Tradier configured)
-    tradier, iv_rank_dict, earnings_dates_dict = fetch_options_data(list(stock_data_dict.keys()))
+    # Fetch earnings dates (hybrid cached + yfinance)
+    earnings_dates_dict = fetch_earnings_data(list(stock_data_dict.keys()), db)
+
+    # Fetch IV Rank (Tradier if configured)
+    tradier, iv_rank_dict = fetch_options_data(list(stock_data_dict.keys()))
 
     # Run screener
     print(f"\n🔍 Running screener...")
@@ -379,7 +443,6 @@ def main():
 
     # Save to database
     print(f"\n💾 Saving results to database...")
-    db = Database()
     scan_id = db.save_scan_results(results)
     print(f"  ✓ Saved (Scan ID: {scan_id})")
 

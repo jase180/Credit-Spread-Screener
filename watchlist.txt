@@ -82,7 +82,6 @@ PSX
 
 # High Volume Growth/Tech
 SHOP
-SQ
 COIN
 PLTR
 SNOW
@@ -127,13 +126,12 @@ AFRM
 SOFI
 
 # Industrials
-UNR
+UNP
 LUV
 DAL
 AAL
 
 # Consumer Discretionary
-AMZN
 BABA
 F
 GM

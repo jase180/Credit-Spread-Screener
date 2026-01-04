@@ -81,12 +81,30 @@ class EventVolatilityGate:
         if current_date is None:
             current_date = stock_data.index[-1] if isinstance(stock_data.index, pd.DatetimeIndex) else datetime.now()
 
+        # Normalize current_date to datetime (handle pandas Timestamp)
+        if hasattr(current_date, 'to_pydatetime'):
+            current_date = current_date.to_pydatetime()
+        elif isinstance(current_date, datetime):
+            pass  # Already a datetime
+        else:
+            # Convert date to datetime if needed
+            current_date = datetime.combine(current_date, datetime.min.time())
+
         # Check 1: No earnings inside trade duration
         no_earnings_conflict = True
         days_to_earnings = None
 
         if earnings_date is not None:
-            days_to_earnings = (earnings_date - current_date).days
+            # Normalize earnings_date to datetime (handle pandas Timestamp or date)
+            if hasattr(earnings_date, 'to_pydatetime'):
+                earnings_date_dt = earnings_date.to_pydatetime()
+            elif isinstance(earnings_date, datetime):
+                earnings_date_dt = earnings_date
+            else:
+                # Convert date to datetime if needed
+                earnings_date_dt = datetime.combine(earnings_date, datetime.min.time())
+
+            days_to_earnings = (earnings_date_dt - current_date).days
             # Earnings should be outside the trade window
             no_earnings_conflict = days_to_earnings > self.trade_duration_days or days_to_earnings < 0
 
