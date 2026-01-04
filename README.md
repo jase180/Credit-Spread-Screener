@@ -21,24 +21,25 @@ The system continuously monitors for:
 
 When failure modes trigger, the system reduces or halts new entries.
 
-## Usage
+## Quick Start
 
-### Basic Screening
-
-```python
-from src.screener import CreditSpreadScreener
-
-# Initialize screener
-screener = CreditSpreadScreener()
-
-# Screen a list of tickers
-candidates = screener.screen(['AAPL', 'MSFT', 'GOOGL', 'NVDA'])
-
-# Check system state
-state = screener.get_system_state()
+**Daily scanning (recommended):**
+```bash
+python daily_scan.py
 ```
 
-### With Database (Recommended)
+This will:
+- Load 111 liquid stocks from `watchlist.txt`
+- Fetch market data and run all 4 gates
+- Save to database and display results
+
+**See:** [`DAILY_SCAN_USAGE.md`](DAILY_SCAN_USAGE.md) for complete guide
+
+---
+
+## Advanced Usage
+
+### Programmatic Screening
 
 ```python
 from src.screener import CreditSpreadScreener
@@ -46,12 +47,10 @@ from src.data import Database
 
 # Initialize screener and database
 screener = CreditSpreadScreener()
-db = Database()  # Auto-creates data/screening.db
+db = Database()
 
 # Run screening
 results = screener.screen(...)
-
-# Save results to database
 db.save_scan_results(results)
 
 # Query historical data
@@ -60,9 +59,9 @@ summary = db.get_qualification_summary(days=30)
 ```
 
 **See:**
-- `example_usage.py` - Basic screening example
-- `example_database.py` - Database integration example
-- `DATABASE_USAGE.md` - Complete database guide
+- [`DAILY_SCAN_USAGE.md`](DAILY_SCAN_USAGE.md) - Daily workflow guide
+- [`DATABASE_USAGE.md`](DATABASE_USAGE.md) - Database query examples
+- `example_database.py` - Code examples
 
 ## Directory Structure
 

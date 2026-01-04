@@ -1,0 +1,144 @@
+# Credit Spread Screener Watchlist
+# One ticker per line. Lines starting with # are ignored.
+# Edit this list to match your preferences.
+
+# Mega Cap Tech
+AAPL
+MSFT
+GOOGL
+AMZN
+NVDA
+META
+TSLA
+AMD
+INTC
+ORCL
+CRM
+ADBE
+CSCO
+AVGO
+QCOM
+
+# Mega Cap Finance
+JPM
+BAC
+WFC
+GS
+MS
+C
+BLK
+SCHW
+AXP
+V
+MA
+
+# Mega Cap Healthcare
+UNH
+JNJ
+LLY
+ABBV
+MRK
+PFE
+TMO
+ABT
+DHR
+BMY
+AMGN
+GILD
+
+# Mega Cap Consumer
+WMT
+HD
+MCD
+NKE
+SBUX
+TGT
+LOW
+COST
+PG
+KO
+PEP
+MDLZ
+
+# Mega Cap Industrial
+CAT
+BA
+GE
+MMM
+HON
+UPS
+RTX
+LMT
+DE
+
+# Mega Cap Energy
+XOM
+CVX
+COP
+SLB
+EOG
+MPC
+PSX
+
+# High Volume Growth/Tech
+SHOP
+SQ
+COIN
+PLTR
+SNOW
+NET
+DDOG
+ZS
+CRWD
+MDB
+
+# Communication/Media
+DIS
+NFLX
+CMCSA
+T
+VZ
+TMUS
+
+# REITs (for diversification)
+AMT
+PLD
+EQIX
+SPG
+
+# Semiconductors
+TSM
+ASML
+AMAT
+LRCX
+KLAC
+MU
+MRVL
+
+# Biotech
+VRTX
+REGN
+BIIB
+MRNA
+
+# Financials/Payments
+PYPL
+AFRM
+SOFI
+
+# Industrials
+UNR
+LUV
+DAL
+AAL
+
+# Consumer Discretionary
+AMZN
+BABA
+F
+GM
+
+# Additional High Volume
+SPY
+QQQ
+IWM
