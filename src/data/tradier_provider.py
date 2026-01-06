@@ -264,3 +264,63 @@ class TradierProvider(OptionsDataProvider):
         if quote and 'quotes' in quote and 'quote' in quote['quotes']:
             return quote['quotes']['quote']
         return None
+
+    def get_expirations(self, ticker: str) -> list:
+        """
+        Get list of available expiration dates for a ticker.
+
+        Args:
+            ticker: Stock ticker symbol
+
+        Returns:
+            List of expiration dates as strings (YYYY-MM-DD format), or empty list if unavailable
+        """
+        data = self._make_request('/markets/options/expirations', {'symbol': ticker})
+        if data and 'expirations' in data:
+            expirations = data['expirations'].get('date', [])
+            # Handle single expiration (returns string instead of list)
+            if isinstance(expirations, str):
+                return [expirations]
+            return expirations
+        return []
+
+    def get_option_chain(self, ticker: str, expiration: str, greeks: bool = True) -> list:
+        """
+        Get full option chain (calls + puts) for a specific expiration.
+
+        Args:
+            ticker: Stock ticker symbol
+            expiration: Expiration date (YYYY-MM-DD format)
+            greeks: Whether to include Greeks data (default True)
+
+        Returns:
+            List of option dictionaries with quotes, greeks, volume, OI, etc.
+            Returns empty list if unavailable.
+        """
+        data = self._make_request('/markets/options/chains', {
+            'symbol': ticker,
+            'expiration': expiration,
+            'greeks': 'true' if greeks else 'false'
+        })
+        if data and 'options' in data:
+            options = data['options'].get('option', [])
+            # Handle single option (returns dict instead of list)
+            if isinstance(options, dict):
+                return [options]
+            return options
+        return []
+
+    def get_put_options(self, ticker: str, expiration: str) -> list:
+        """
+        Get only put options for a specific expiration.
+
+        Args:
+            ticker: Stock ticker symbol
+            expiration: Expiration date (YYYY-MM-DD format)
+
+        Returns:
+            List of put option dictionaries with quotes, greeks, volume, OI, etc.
+            Returns empty list if unavailable.
+        """
+        chain = self.get_option_chain(ticker, expiration, greeks=True)
+        return [opt for opt in chain if opt.get('option_type') == 'put']
